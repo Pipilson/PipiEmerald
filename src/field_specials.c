@@ -173,23 +173,6 @@ void Special_ViewWallClock(void)
     LockPlayerFieldControls();
 }
 
-void GetDayOrNight(void)
-{
-    u8 dayornight;
-    FakeRtc_GetCurrentTime();
-
-    if (gLocalTime.hours >= 8 && gLocalTime.hours <=19)
-	{
-		dayornight = 0; //Day
-	}
-	else
-	{
-		dayornight = 1; //Night
-	}
-
-	gSpecialVar_Result = dayornight;
-}
-
 void ResetCyclingRoadChallengeData(void)
 {
     gBikeCyclingChallenge = FALSE;
