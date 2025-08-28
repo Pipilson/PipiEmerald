@@ -37,6 +37,7 @@
 #include "rayquaza_scene.h"
 #include "region_map.h"
 #include "rtc.h"
+#include "fake_rtc.h"
 #include "script.h"
 #include "script_menu.h"
 #include "sound.h"
@@ -170,6 +171,23 @@ void Special_ViewWallClock(void)
     gMain.savedCallback = CB2_ReturnToField;
     SetMainCallback2(CB2_ViewWallClock);
     LockPlayerFieldControls();
+}
+
+void GetDayOrNight(void)
+{
+    u8 dayornight;
+    FakeRtc_GetCurrentTime();
+
+    if (gLocalTime.hours >= 8 && gLocalTime.hours <=19)
+	{
+		dayornight = 0; //Day
+	}
+	else
+	{
+		dayornight = 1; //Night
+	}
+
+	gSpecialVar_Result = dayornight;
 }
 
 void ResetCyclingRoadChallengeData(void)

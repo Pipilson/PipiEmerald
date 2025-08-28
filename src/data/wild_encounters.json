@@ -90,129 +90,258 @@
       "encounters": [
         {
           "map": "MAP_ROUTE101",
-          "base_label": "gRoute101",
+          "base_label": "gRoute101_day",
           "land_mons": {
             "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_BULBASAUR"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_BULBASAUR"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_BULBASAUR"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_SQUIRTLE"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_SQUIRTLE"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_SQUIRTLE"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_TURTWIG"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_TURTWIG"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_TURTWIG"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_PIPLUP"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_PIPLUP"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_PIPLUP"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_CHESPIN"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_CHESPIN"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_CHESPIN"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_FROAKIE"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_FROAKIE"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_FROAKIE"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 5,
-                "species": "SPECIES_GROOKEY"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_GROOKEY"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_GROOKEY"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_SOBBLE"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_SOBBLE"
+                "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_SOBBLE"
+                "species": "SPECIES_SOLROCK"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_ROUTE101",
+          "base_label": "gRoute101_night",
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 3,
+                "species": "SPECIES_LUNATONE"
               }
             ]
           }

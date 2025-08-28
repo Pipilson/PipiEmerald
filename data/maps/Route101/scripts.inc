@@ -1,7 +1,22 @@
 Route101_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route101_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route101_OnFrame
+	map_script MAP_SCRIPT_ON_RESUME, Route101_OnResume
 	.byte 0
+
+Route101_OnResume:
+	special GetDayOrNight
+	goto_if_eq VAR_RESULT, 1, Route101_OnResume_Night
+	goto_if_eq VAR_RESULT, 0, Route101_OnResume_Day
+	end
+	
+Route101_OnResume_Night:
+	setvar VAR_DAY_OR_NIGHT, 1
+	end
+	
+Route101_OnResume_Day:
+	setvar VAR_DAY_OR_NIGHT, 0
+	end
 
 Route101_OnTransition:
 	call ProfBirch_EventScript_UpdateLocation
