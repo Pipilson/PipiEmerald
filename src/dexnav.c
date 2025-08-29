@@ -1688,7 +1688,12 @@ static void UpdateCursorPosition(void)
         y = ROW_LAND_TOP_ICON_Y;
         sDexNavUiDataPtr->environment = ENCOUNTER_TYPE_LAND;
         break;
-    case ROW_LAND_BOT: //land 2
+    case ROW_LAND_MIDDLE: //land 2
+        x = ROW_LAND_ICON_X + (24 * sDexNavUiDataPtr->cursorCol);
+        y = ROW_LAND_MIDDLE_ICON_Y;
+        sDexNavUiDataPtr->environment = ENCOUNTER_TYPE_LAND;
+        break;
+    case ROW_LAND_BOT: //land 3
         x = ROW_LAND_ICON_X + (24 * sDexNavUiDataPtr->cursorCol);
         y = ROW_LAND_BOT_ICON_Y;
         sDexNavUiDataPtr->environment = ENCOUNTER_TYPE_LAND;
@@ -2020,7 +2025,7 @@ static void DrawSpeciesIcons(void)
     {
         species = sDexNavUiDataPtr->landSpecies[i];
         x = ROW_LAND_ICON_X + (24 * (i % COL_LAND_COUNT));
-        y = ROW_LAND_TOP_ICON_Y + (i > COL_LAND_MAX ? 28 : 0);
+        y = ROW_LAND_TOP_ICON_Y + (28 * (i / COL_LAND_COUNT));
         TryDrawIconInSlot(species, x, y);
     }
 
@@ -2058,8 +2063,11 @@ static u16 DexNavGetSpecies(void)
     case ROW_LAND_TOP:
         species = sDexNavUiDataPtr->landSpecies[sDexNavUiDataPtr->cursorCol];
         break;
-    case ROW_LAND_BOT:
+    case ROW_LAND_MIDDLE:
         species = sDexNavUiDataPtr->landSpecies[sDexNavUiDataPtr->cursorCol + COL_LAND_COUNT];
+        break;
+    case ROW_LAND_BOT:
+        species = sDexNavUiDataPtr->landSpecies[sDexNavUiDataPtr->cursorCol + (2 * COL_LAND_COUNT)];
         break;
     case ROW_HIDDEN:
         if (!FlagGet(DN_FLAG_DETECTOR_MODE))

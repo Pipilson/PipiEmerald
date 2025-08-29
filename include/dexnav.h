@@ -8,6 +8,7 @@ enum RowGUIInfo
 {
     ROW_WATER,
     ROW_LAND_TOP,
+    ROW_LAND_MIDDLE,
     ROW_LAND_BOT,
     ROW_HIDDEN,
     ROWS_COUNT
@@ -16,9 +17,10 @@ enum RowGUIInfo
 #define ROW_WATER_ICON_X        30
 #define ROW_WATER_ICON_Y        35
 
-#define ROW_LAND_ICON_X         20
-#define ROW_LAND_TOP_ICON_Y     72
-#define ROW_LAND_BOT_ICON_Y     (ROW_LAND_TOP_ICON_Y + 28)
+#define ROW_LAND_ICON_X         8
+#define ROW_LAND_TOP_ICON_Y     56
+#define ROW_LAND_MIDDLE_ICON_Y  (ROW_LAND_TOP_ICON_Y + 28)
+#define ROW_LAND_BOT_ICON_Y     (ROW_LAND_MIDDLE_ICON_Y + 28)
 
 #define ROW_HIDDEN_ICON_X       52
 #define ROW_HIDDEN_ICON_Y       138
@@ -31,7 +33,7 @@ enum EncounterType
 };
 
 #define COL_WATER_COUNT         5
-#define COL_LAND_COUNT          6
+#define COL_LAND_COUNT          8
 #define COL_HIDDEN_COUNT        3
 
 #define COL_WATER_MAX           (COL_WATER_COUNT - 1)
