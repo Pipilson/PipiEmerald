@@ -6,37 +6,39 @@
 // GUI Info
 enum RowGUIInfo
 {
-    ROW_WATER,
-    ROW_LAND_TOP,
-    ROW_LAND_MIDDLE,
-    ROW_LAND_BOT,
+    //ROW_WATER,
+    ROW_LAND_FIRST,
+    ROW_LAND_SECOND,
+    ROW_LAND_THIRD,
+    ROW_LAND_FOURTH,
     ROW_HIDDEN,
     ROWS_COUNT
 };
 
-#define ROW_WATER_ICON_X        30
-#define ROW_WATER_ICON_Y        35
+//#define ROW_WATER_ICON_X        30
+//#define ROW_WATER_ICON_Y        35
 
-#define ROW_LAND_ICON_X         8
-#define ROW_LAND_TOP_ICON_Y     56
-#define ROW_LAND_MIDDLE_ICON_Y  (ROW_LAND_TOP_ICON_Y + 28)
-#define ROW_LAND_BOT_ICON_Y     (ROW_LAND_MIDDLE_ICON_Y + 28)
+#define ROW_LAND_ICON_X         18
+#define ROW_LAND_FIRST_ICON_Y     28
+#define ROW_LAND_SECOND_ICON_Y  (ROW_LAND_FIRST_ICON_Y + 28)
+#define ROW_LAND_THIRD_ICON_Y     (ROW_LAND_SECOND_ICON_Y + 28)
+#define ROW_LAND_FOURTH_ICON_Y     (ROW_LAND_THIRD_ICON_Y + 28)
 
-#define ROW_HIDDEN_ICON_X       52
+#define ROW_HIDDEN_ICON_X       18
 #define ROW_HIDDEN_ICON_Y       138
 
 enum EncounterType
 {
     ENCOUNTER_TYPE_LAND,
-    ENCOUNTER_TYPE_WATER,
+    //ENCOUNTER_TYPE_WATER,
     ENCOUNTER_TYPE_HIDDEN // Get from species
 };
 
-#define COL_WATER_COUNT         5
-#define COL_LAND_COUNT          8
-#define COL_HIDDEN_COUNT        3
+//#define COL_WATER_COUNT         5
+#define COL_LAND_COUNT          6
+#define COL_HIDDEN_COUNT        6
 
-#define COL_WATER_MAX           (COL_WATER_COUNT - 1)
+//#define COL_WATER_MAX           (COL_WATER_COUNT - 1)
 #define COL_LAND_MAX            (COL_LAND_COUNT - 1)
 #define COL_HIDDEN_MAX          (COL_HIDDEN_COUNT - 1)
 

@@ -681,16 +681,16 @@ static bool8 DexNavPickTile(enum EncounterType environment, u8 areaX, u8 areaY, 
                     }
                 }
                 break;
-            case ENCOUNTER_TYPE_WATER:
-                if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehaviour))
-                {
-                    u8 scale = 320 - (smallScan * 200) - (GetPlayerDistance(topX, topY) / 2);
-                    if (IsElevationMismatchAt(gObjectEvents[gPlayerAvatar.spriteId].currentElevation, topX, topY))
-                        break;
+            // case ENCOUNTER_TYPE_WATER:
+            //     if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehaviour))
+            //     {
+            //         u8 scale = 320 - (smallScan * 200) - (GetPlayerDistance(topX, topY) / 2);
+            //         if (IsElevationMismatchAt(gObjectEvents[gPlayerAvatar.spriteId].currentElevation, topX, topY))
+            //             break;
 
-                    weight = (Random() % scale <= 1) && !MapGridGetCollisionAt(topX, topY);
-                }
-                break;
+            //         weight = (Random() % scale <= 1) && !MapGridGetCollisionAt(topX, topY);
+            //     }
+            //     break;
             default:
                 break;
             }
@@ -765,9 +765,9 @@ static bool8 TryStartHiddenMonFieldEffect(enum EncounterType environment, u8 xSi
                     fldEffId = FLDEFF_BERRY_TREE_GROWTH_SPARKLE; //default
             }
             break;
-        case ENCOUNTER_TYPE_WATER:
-            fldEffId = FLDEFF_WATER_SURFACING;
-            break;
+        // case ENCOUNTER_TYPE_WATER:
+        //     fldEffId = FLDEFF_WATER_SURFACING;
+        //     break;
         default:
             return FALSE;
         }
@@ -1137,7 +1137,7 @@ static void Task_DexNavSearch(u8 taskId)
     }
 
     //Caves and water the pokemon moves around
-    if ((sDexNavSearchDataPtr->environment == ENCOUNTER_TYPE_WATER || GetCurrentMapType() == MAP_TYPE_UNDERGROUND)
+    if ((/*sDexNavSearchDataPtr->environment == ENCOUNTER_TYPE_WATER ||*/ GetCurrentMapType() == MAP_TYPE_UNDERGROUND)
         && sDexNavSearchDataPtr->proximity < GetMovementProximityBySearchLevel() && sDexNavSearchDataPtr->movementCount < 2
         && task->tRevealed)
     {
@@ -1540,22 +1540,22 @@ static u8 GetEncounterLevelFromMapData(u16 species, enum EncounterType environme
             }
         }
         break;
-    case ENCOUNTER_TYPE_WATER:    //water
-        timeOfDay = GetTimeOfDayForEncounters(headerId, WILD_AREA_WATER);
-        const struct WildPokemonInfo *waterMonsInfo = gWildMonHeaders[headerId].encounterTypes[timeOfDay].waterMonsInfo;
+    // case ENCOUNTER_TYPE_WATER:    //water
+    //     timeOfDay = GetTimeOfDayForEncounters(headerId, WILD_AREA_WATER);
+    //     const struct WildPokemonInfo *waterMonsInfo = gWildMonHeaders[headerId].encounterTypes[timeOfDay].waterMonsInfo;
 
-        if (waterMonsInfo == NULL)
-            return MON_LEVEL_NONEXISTENT; //Hidden pokemon should only appear on walkable tiles or surf tiles
+    //     if (waterMonsInfo == NULL)
+    //         return MON_LEVEL_NONEXISTENT; //Hidden pokemon should only appear on walkable tiles or surf tiles
 
-        for (i = 0; i < WATER_WILD_COUNT; i++)
-        {
-            if (waterMonsInfo->wildPokemon[i].species == species)
-            {
-                min = (min < waterMonsInfo->wildPokemon[i].minLevel) ? min : waterMonsInfo->wildPokemon[i].minLevel;
-                max = (max > waterMonsInfo->wildPokemon[i].maxLevel) ? max : waterMonsInfo->wildPokemon[i].maxLevel;
-            }
-        }
-        break;
+    //     for (i = 0; i < WATER_WILD_COUNT; i++)
+    //     {
+    //         if (waterMonsInfo->wildPokemon[i].species == species)
+    //         {
+    //             min = (min < waterMonsInfo->wildPokemon[i].minLevel) ? min : waterMonsInfo->wildPokemon[i].minLevel;
+    //             max = (max > waterMonsInfo->wildPokemon[i].maxLevel) ? max : waterMonsInfo->wildPokemon[i].maxLevel;
+    //         }
+    //     }
+    //     break;
     case ENCOUNTER_TYPE_HIDDEN:
         timeOfDay = GetTimeOfDayForEncounters(headerId, WILD_AREA_HIDDEN);
         const struct WildPokemonInfo *hiddenMonsInfo = gWildMonHeaders[headerId].encounterTypes[timeOfDay].hiddenMonsInfo;
@@ -1573,9 +1573,9 @@ static u8 GetEncounterLevelFromMapData(u16 species, enum EncounterType environme
         }
 
         // use encounter rate to signify is hidden pokemon are on land or in water
-        if (hiddenMonsInfo->encounterRate == 1)
-            sDexNavSearchDataPtr->environment = ENCOUNTER_TYPE_WATER;
-        else
+        // if (hiddenMonsInfo->encounterRate == 1)
+        //     sDexNavSearchDataPtr->environment = ENCOUNTER_TYPE_WATER;
+        //else
             sDexNavSearchDataPtr->environment = ENCOUNTER_TYPE_LAND;
         break;
     default:
@@ -1678,24 +1678,29 @@ static void UpdateCursorPosition(void)
 
     switch (sDexNavUiDataPtr->cursorRow)
     {
-    case ROW_WATER:
-        x = ROW_WATER_ICON_X + (24 * sDexNavUiDataPtr->cursorCol);
-        y = ROW_WATER_ICON_Y;
-        sDexNavUiDataPtr->environment = ENCOUNTER_TYPE_WATER;
-        break;
-    case ROW_LAND_TOP: //land 1
+    // case ROW_WATER:
+    //     x = ROW_WATER_ICON_X + (24 * sDexNavUiDataPtr->cursorCol);
+    //     y = ROW_WATER_ICON_Y;
+    //     sDexNavUiDataPtr->environment = ENCOUNTER_TYPE_WATER;
+    //     break;
+    case ROW_LAND_FIRST: //land 1
         x = ROW_LAND_ICON_X + (24 * sDexNavUiDataPtr->cursorCol);
-        y = ROW_LAND_TOP_ICON_Y;
+        y = ROW_LAND_FIRST_ICON_Y;
         sDexNavUiDataPtr->environment = ENCOUNTER_TYPE_LAND;
         break;
-    case ROW_LAND_MIDDLE: //land 2
+    case ROW_LAND_SECOND: //land 2
         x = ROW_LAND_ICON_X + (24 * sDexNavUiDataPtr->cursorCol);
-        y = ROW_LAND_MIDDLE_ICON_Y;
+        y = ROW_LAND_SECOND_ICON_Y;
         sDexNavUiDataPtr->environment = ENCOUNTER_TYPE_LAND;
         break;
-    case ROW_LAND_BOT: //land 3
+    case ROW_LAND_THIRD: //land 3
         x = ROW_LAND_ICON_X + (24 * sDexNavUiDataPtr->cursorCol);
-        y = ROW_LAND_BOT_ICON_Y;
+        y = ROW_LAND_THIRD_ICON_Y;
+        sDexNavUiDataPtr->environment = ENCOUNTER_TYPE_LAND;
+        break;
+    case ROW_LAND_FOURTH: //land 4
+        x = ROW_LAND_ICON_X + (24 * sDexNavUiDataPtr->cursorCol);
+        y = ROW_LAND_FOURTH_ICON_Y;
         sDexNavUiDataPtr->environment = ENCOUNTER_TYPE_LAND;
         break;
     case ROW_HIDDEN:
@@ -2025,17 +2030,17 @@ static void DrawSpeciesIcons(void)
     {
         species = sDexNavUiDataPtr->landSpecies[i];
         x = ROW_LAND_ICON_X + (24 * (i % COL_LAND_COUNT));
-        y = ROW_LAND_TOP_ICON_Y + (28 * (i / COL_LAND_COUNT));
+        y = ROW_LAND_FIRST_ICON_Y + (28 * (i / COL_LAND_COUNT));
         TryDrawIconInSlot(species, x, y);
     }
 
-    for (i = 0; i < WATER_WILD_COUNT; i++)
-    {
-        species = sDexNavUiDataPtr->waterSpecies[i];
-        x = ROW_WATER_ICON_X + 24 * i;
-        y = ROW_WATER_ICON_Y;
-        TryDrawIconInSlot(species, x, y);
-    }
+    // for (i = 0; i < WATER_WILD_COUNT; i++)
+    // {
+    //     species = sDexNavUiDataPtr->waterSpecies[i];
+    //     x = ROW_WATER_ICON_X + 24 * i;
+    //     y = ROW_WATER_ICON_Y;
+    //     TryDrawIconInSlot(species, x, y);
+    // }
 
     for (i = 0; i < HIDDEN_WILD_COUNT; i++)
     {
@@ -2057,17 +2062,21 @@ static u16 DexNavGetSpecies(void)
 
     switch (sDexNavUiDataPtr->cursorRow)
     {
-    case ROW_WATER:
-        species = sDexNavUiDataPtr->waterSpecies[sDexNavUiDataPtr->cursorCol];
+    // case ROW_WATER:
+    //     species = sDexNavUiDataPtr->waterSpecies[sDexNavUiDataPtr->cursorCol];
+    //     break;
+
+    case ROW_LAND_FIRST:
+        species = sDexNavUiDataPtr->landSpecies[sDexNavUiDataPtr->cursorCol + (0 * COL_LAND_COUNT)];
         break;
-    case ROW_LAND_TOP:
-        species = sDexNavUiDataPtr->landSpecies[sDexNavUiDataPtr->cursorCol];
+    case ROW_LAND_SECOND:
+        species = sDexNavUiDataPtr->landSpecies[sDexNavUiDataPtr->cursorCol + (1 * COL_LAND_COUNT)];
         break;
-    case ROW_LAND_MIDDLE:
-        species = sDexNavUiDataPtr->landSpecies[sDexNavUiDataPtr->cursorCol + COL_LAND_COUNT];
-        break;
-    case ROW_LAND_BOT:
+    case ROW_LAND_THIRD:
         species = sDexNavUiDataPtr->landSpecies[sDexNavUiDataPtr->cursorCol + (2 * COL_LAND_COUNT)];
+        break;
+    case ROW_LAND_FOURTH:
+        species = sDexNavUiDataPtr->landSpecies[sDexNavUiDataPtr->cursorCol + (3 * COL_LAND_COUNT)];
         break;
     case ROW_HIDDEN:
         if (!FlagGet(DN_FLAG_DETECTOR_MODE))
@@ -2284,7 +2293,7 @@ static bool8 DexNav_DoGfxSetup(void)
         break;
     case 6:
         DexNav_InitWindows();
-        sDexNavUiDataPtr->cursorRow = ROW_LAND_TOP;
+        sDexNavUiDataPtr->cursorRow = ROW_LAND_FIRST;
         sDexNavUiDataPtr->cursorCol = 0;
         sDexNavUiDataPtr->environment = ENCOUNTER_TYPE_LAND;
         gMain.state++;
@@ -2386,17 +2395,22 @@ static void Task_DexNavMain(u8 taskId)
     }
     else if (JOY_NEW(DPAD_UP))
     {
-        if (sDexNavUiDataPtr->cursorRow == ROW_WATER)
+        if (sDexNavUiDataPtr->cursorRow == ROW_LAND_FIRST)
         {
             sDexNavUiDataPtr->cursorRow = ROW_HIDDEN;
+
             if (sDexNavUiDataPtr->cursorCol >= COL_HIDDEN_COUNT)
                 sDexNavUiDataPtr->cursorCol = COL_HIDDEN_MAX;
         }
+        else if (sDexNavUiDataPtr->cursorRow == ROW_HIDDEN)
+        {
+            sDexNavUiDataPtr->cursorRow = ROW_LAND_FOURTH;
+
+            if (sDexNavUiDataPtr->cursorRow == COL_LAND_COUNT /*&& sDexNavUiDataPtr->cursorCol == COL_LAND_MAX*/)
+                sDexNavUiDataPtr->cursorCol = COL_LAND_MAX;
+        }
         else
         {
-            if (sDexNavUiDataPtr->cursorRow == ROW_LAND_TOP && sDexNavUiDataPtr->cursorCol == COL_LAND_MAX)
-                sDexNavUiDataPtr->cursorCol = COL_WATER_MAX;
-
             sDexNavUiDataPtr->cursorRow--;
         }
 
@@ -2407,14 +2421,15 @@ static void Task_DexNavMain(u8 taskId)
     {
         if (sDexNavUiDataPtr->cursorRow == ROW_HIDDEN)
         {
-            sDexNavUiDataPtr->cursorRow = ROW_WATER;
+            sDexNavUiDataPtr->cursorRow = ROW_LAND_FIRST;
         }
-        else if (sDexNavUiDataPtr->cursorRow == ROW_LAND_BOT)
+        else if (sDexNavUiDataPtr->cursorRow == ROW_LAND_FOURTH)
         {
             if (sDexNavUiDataPtr->cursorCol >= COL_HIDDEN_COUNT)
                 sDexNavUiDataPtr->cursorCol = COL_HIDDEN_MAX;
 
-            sDexNavUiDataPtr->cursorRow++;
+            //sDexNavUiDataPtr->cursorRow++;
+            sDexNavUiDataPtr->cursorRow = ROW_HIDDEN;
         }
         else
         {
@@ -2430,9 +2445,9 @@ static void Task_DexNavMain(u8 taskId)
         {
             switch (sDexNavUiDataPtr->cursorRow)
             {
-            case ROW_WATER:
-                sDexNavUiDataPtr->cursorCol = COL_WATER_MAX;
-                break;
+            // case ROW_WATER:
+            //     sDexNavUiDataPtr->cursorCol = COL_WATER_MAX;
+            //     break;
             case ROW_HIDDEN:
                 sDexNavUiDataPtr->cursorCol = COL_HIDDEN_MAX;
                 break;
@@ -2453,12 +2468,12 @@ static void Task_DexNavMain(u8 taskId)
     {
         switch (sDexNavUiDataPtr->cursorRow)
         {
-        case ROW_WATER:
-            if (sDexNavUiDataPtr->cursorCol == COL_WATER_MAX)
-                sDexNavUiDataPtr->cursorCol = 0;
-            else
-                sDexNavUiDataPtr->cursorCol++;
-            break;
+        // case ROW_WATER:
+        //     if (sDexNavUiDataPtr->cursorCol == COL_WATER_MAX)
+        //         sDexNavUiDataPtr->cursorCol = 0;
+        //     else
+        //         sDexNavUiDataPtr->cursorCol++;
+        //     break;
         case ROW_HIDDEN:
             if (sDexNavUiDataPtr->cursorCol == COL_HIDDEN_MAX)
                 sDexNavUiDataPtr->cursorCol = 0;
@@ -2572,31 +2587,31 @@ bool8 TryFindHiddenPokemon(void)
                 environment = ENCOUNTER_TYPE_LAND;
             }
             break;
-        case 1: // water
-            if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
-            {
-                if (Random() % 100 < HIDDEN_MON_PROBABILTY)
-                {
-                    index = ChooseHiddenMonIndex();
-                    if (index == 0xFF)
-                        return FALSE;//no hidden info
-                    species = hiddenMonsInfo->wildPokemon[index].species;
-                    isHiddenMon = TRUE;
-                    environment = ENCOUNTER_TYPE_HIDDEN;
-                }
-                else
-                {
-                    species = gWildMonHeaders[headerId].encounterTypes[timeOfDay].waterMonsInfo->wildPokemon[ChooseWildMonIndex_WaterRock()].species;
-                    environment = ENCOUNTER_TYPE_WATER;
+        // case 1: // water
+        //     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
+        //     {
+        //         if (Random() % 100 < HIDDEN_MON_PROBABILTY)
+        //         {
+        //             index = ChooseHiddenMonIndex();
+        //             if (index == 0xFF)
+        //                 return FALSE;//no hidden info
+        //             species = hiddenMonsInfo->wildPokemon[index].species;
+        //             isHiddenMon = TRUE;
+        //             environment = ENCOUNTER_TYPE_HIDDEN;
+        //         }
+        //         else
+        //         {
+        //             species = gWildMonHeaders[headerId].encounterTypes[timeOfDay].waterMonsInfo->wildPokemon[ChooseWildMonIndex_WaterRock()].species;
+        //             environment = ENCOUNTER_TYPE_WATER;
 
-                }
-            }
-            else
-            {
-                // not surfing -> cant find hidden water mons
-                return FALSE;
-            }
-            break;
+        //         }
+        //     }
+        //     else
+        //     {
+        //         // not surfing -> cant find hidden water mons
+        //         return FALSE;
+        //     }
+        //     break;
         default:
             return FALSE;
         }
