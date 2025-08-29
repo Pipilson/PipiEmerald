@@ -1263,8 +1263,14 @@ u8 ChooseHiddenMonIndex(void)
             return 0;
         else if (rand >= ENCOUNTER_CHANCE_HIDDEN_MONS_SLOT_0 && rand < ENCOUNTER_CHANCE_HIDDEN_MONS_SLOT_1)
             return 1;
-        else
+        else if (rand >= ENCOUNTER_CHANCE_HIDDEN_MONS_SLOT_1 && rand < ENCOUNTER_CHANCE_HIDDEN_MONS_SLOT_2)
             return 2;
+        else if (rand >= ENCOUNTER_CHANCE_HIDDEN_MONS_SLOT_2 && rand < ENCOUNTER_CHANCE_HIDDEN_MONS_SLOT_3)
+            return 3;
+        else if (rand >= ENCOUNTER_CHANCE_HIDDEN_MONS_SLOT_3 && rand < ENCOUNTER_CHANCE_HIDDEN_MONS_SLOT_4)
+            return 4;
+        else
+            return 5;
     #else
         return 0xFF;
     #endif

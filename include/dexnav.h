@@ -19,13 +19,13 @@ enum RowGUIInfo
 //#define ROW_WATER_ICON_Y        35
 
 #define ROW_LAND_ICON_X         18
-#define ROW_LAND_FIRST_ICON_Y     28
+#define ROW_LAND_FIRST_ICON_Y     24
 #define ROW_LAND_SECOND_ICON_Y  (ROW_LAND_FIRST_ICON_Y + 28)
 #define ROW_LAND_THIRD_ICON_Y     (ROW_LAND_SECOND_ICON_Y + 28)
 #define ROW_LAND_FOURTH_ICON_Y     (ROW_LAND_THIRD_ICON_Y + 28)
 
 #define ROW_HIDDEN_ICON_X       18
-#define ROW_HIDDEN_ICON_Y       138
+#define ROW_HIDDEN_ICON_Y       140
 
 enum EncounterType
 {

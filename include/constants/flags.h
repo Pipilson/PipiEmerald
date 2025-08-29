@@ -659,11 +659,11 @@
 #define FLAG_EXP_SHARE  0x264 // EXP SHARE
 #define FLAG_TERA_ORB_CHARGED  0x265 // TERA
 #define FLAG_TERA_ORB_NO_COST  0x266 // Unused Flag
-#define FLAG_TESTE_1  0x267 // Unused Flag
-#define FLAG_TESTE_2  0x268 // Unused Flag
-#define FLAG_TESTE_3  0x269 // Unused Flag
-#define FLAG_TESTE_4  0x26A // Unused Flag
-#define FLAG_TESTE_5  0x26B // Unused Flag
+#define FLAG_SEARCHING  0x267 // Unused Flag
+#define FLAG_DEXNAV_GET  0x268 // Unused Flag
+#define FLAG_DETECTOR_MODE  0x269 // Unused Flag
+#define FLAG_TESTE_4_UNUSED  0x26A // Unused Flag
+#define FLAG_TESTE_5_UNUSED  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
