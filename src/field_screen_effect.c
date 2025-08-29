@@ -12,6 +12,7 @@
 #include "field_screen_effect.h"
 #include "field_special_scene.h"
 #include "field_weather.h"
+#include "follower_npc.h"
 #include "fishing_game.h"
 #include "gpu_regs.h"
 #include "heal_location.h"

@@ -11,6 +11,7 @@
 #include "field_weather.h"
 #include "fieldmap.h"
 #include "fishing_game.h"
+#include "follower_npc.h"
 #include "menu.h"
 #include "metatile_behavior.h"
 #include "overworld.h"

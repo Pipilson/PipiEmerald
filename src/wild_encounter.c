@@ -6,6 +6,7 @@
 #include "fishing_game.h"
 #include "random.h"
 #include "field_player_avatar.h"
+#include "follower_npc.h"
 #include "event_data.h"
 #include "safari_zone.h"
 #include "overworld.h"
