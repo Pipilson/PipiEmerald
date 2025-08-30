@@ -2345,8 +2345,9 @@ static void DexNav_RunSetup(void)
 }
 
 // Entry point for the dexnav GUI
-static void DexNavGuiInit(MainCallback callback)
+void DexNavGuiInit(MainCallback callback)
 {
+    PlaySE(SE_POKENAV_ON);
     if ((sDexNavUiDataPtr = AllocZeroed(sizeof(struct DexNavGUI))) == NULL)
     {
         SetMainCallback2(callback);

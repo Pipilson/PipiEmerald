@@ -252,7 +252,7 @@ static u32 HandleMainMenuInput(struct Pokenav_Menu *menu)
     }
 
     if (JOY_NEW(B_BUTTON))
-        return POKENAV_MENU_FUNC_EXIT;
+        return POKENAV_MENU_FUNC_EXIT_B;
 
     return POKENAV_MENU_FUNC_NONE;
 }

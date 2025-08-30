@@ -268,7 +268,8 @@ enum
     CONDITION_LOAD_MON_PIC,
 };
 
-#define POKENAV_MENU_FUNC_EXIT  -1
+#define POKENAV_MENU_FUNC_EXIT_B  -1
+#define POKENAV_MENU_FUNC_EXIT -2
 
 enum
 {

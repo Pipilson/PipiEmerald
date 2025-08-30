@@ -2,6 +2,7 @@
 #define GUARD_DEXNAV_H
 
 #include "config/dexnav.h"
+#include "main.h"
 
 // GUI Info
 enum RowGUIInfo
@@ -81,6 +82,7 @@ void ResetDexNavSearch(void);
 bool8 TryFindHiddenPokemon(void);
 u32 CalculateDexNavShinyRolls(void);
 void IncrementDexNavChain(void);
+void DexNavGuiInit(MainCallback callback);
 
 extern u16 gDexNavSpecies;
 
