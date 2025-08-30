@@ -331,16 +331,13 @@ static void AddStartMenuAction(u8 action)
     AppendToList(sCurrentStartMenuActions, &sNumStartMenuActions, action);
 }
 
-static void BuildNormalStartMenu(void)
+static void BuildCustomMenu()
 {
     if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)
         AddStartMenuAction(MENU_ACTION_POKEMON);
 
     if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
         AddStartMenuAction(MENU_ACTION_POKEDEX);
-
-    if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
-        AddStartMenuAction(MENU_ACTION_POKENAV);
 
     //if (DN_FLAG_DEXNAV_GET != 0 && FlagGet(DN_FLAG_DEXNAV_GET))
         //AddStartMenuAction(MENU_ACTION_DEXNAV);   
@@ -349,34 +346,24 @@ static void BuildNormalStartMenu(void)
         AddStartMenuAction(MENU_ACTION_BOX);
 
     AddStartMenuAction(MENU_ACTION_BAG);
+
+    if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
+        AddStartMenuAction(MENU_ACTION_POKENAV);
+
     AddStartMenuAction(MENU_ACTION_PLAYER);
     AddStartMenuAction(MENU_ACTION_OPTION);
     AddStartMenuAction(MENU_ACTION_SAVE);
 }
 
+static void BuildNormalStartMenu(void)
+{
+    BuildCustomMenu();
+}
+
 static void BuildDebugStartMenu(void)
 {
     AddStartMenuAction(MENU_ACTION_DEBUG);
-
-    if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)
-        AddStartMenuAction(MENU_ACTION_POKEMON);
-
-    if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
-        AddStartMenuAction(MENU_ACTION_POKEDEX);
-
-    if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
-        AddStartMenuAction(MENU_ACTION_POKENAV);
-
-    //if (DN_FLAG_DEXNAV_GET != 0 && FlagGet(DN_FLAG_DEXNAV_GET))
-        //AddStartMenuAction(MENU_ACTION_DEXNAV);   
-
-    if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)
-        AddStartMenuAction(MENU_ACTION_BOX);
-        
-    AddStartMenuAction(MENU_ACTION_BAG);
-    AddStartMenuAction(MENU_ACTION_PLAYER);
-    AddStartMenuAction(MENU_ACTION_OPTION);
-    AddStartMenuAction(MENU_ACTION_SAVE);
+    BuildCustomMenu();
 }
 
 static void BuildSafariZoneStartMenu(void)
